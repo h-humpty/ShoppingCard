@@ -23,6 +23,7 @@ from rest_framework_simplejwt.views import (
 from rest_framework.routers import DefaultRouter
 from users.views import UserView, CustomTokenObtainPairView
 from goods.views import GoodsView, CategoriesView
+from shoppingcart.views import ShoppingCartView
 
 # from users.views import UserView
 
@@ -31,6 +32,7 @@ router = DefaultRouter()
 router.register(r'users', UserView)
 router.register(r'goods', GoodsView, basename="goods")
 router.register(r'category', CategoriesView, basename="category")
+router.register(r'shoppingcart', ShoppingCartView, basename="shoppingcart")
 
 urlpatterns = [
     path('', include(router.urls)),

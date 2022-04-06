@@ -8,6 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
     username = serializers.CharField(required=True, validators=[
         UniqueValidator(queryset=User.objects.all(), message="User name is already existed")])
     password = serializers.CharField(required=True, write_only=True)
+    id = serializers.PrimaryKeyRelatedField(read_only=True)
 
     # active = serializers.IntegerField(read_only=True)
 
@@ -17,7 +18,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'password')
+        fields = ('username', 'password', 'id')
         extra_kwargs = {'password': {'write_only': True}}
 
 

@@ -11,7 +11,8 @@ class GoodsCategorySerializer(serializers.ModelSerializer):
 
 
 class GoodsSerializer(serializers.ModelSerializer):
-    category = serializers.StringRelatedField(read_only=True)
+    # category = serializers.StringRelatedField()
+    category_id = serializers.IntegerField(read_only=True)
 
     class Meta:
         model = Goods
