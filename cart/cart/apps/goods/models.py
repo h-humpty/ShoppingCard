@@ -1,5 +1,6 @@
 from django.db import models
 from django.views import View
+from django.utils import timezone
 
 
 class GoodsCategory(models.Model):
@@ -22,9 +23,20 @@ class Goods(models.Model):
     category = models.ForeignKey(GoodsCategory, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     price = models.FloatField(default=0)
-    image = models.ImageField(upload_to="goods/images/", null=True, blank=True)
 
     def __str__(self):
         return self.name
 
 
+class GoodsImage(models.Model):
+    """
+    Goods Image
+    """
+    goods = models.ForeignKey(Goods, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to="static/images ", null=True, blank=True)
+    updated_at = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.goods.name
+    
+    

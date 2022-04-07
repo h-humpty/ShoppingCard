@@ -8,7 +8,7 @@ class ShoppingCart(models.Model):
     """
     ShoppingCart
     """
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     goods = models.ForeignKey(Goods, on_delete=models.CASCADE)
     numbers = models.PositiveIntegerField(default=1)
     created_at = models.DateTimeField(default=timezone.now)
@@ -23,13 +23,20 @@ class Order(models.Model):
     Order
     """
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    price = models.IntegerField(default=0)
+    ORDER_STATUS = (
+        ("PAID", "SUCCESSFUL"),
+        ("UN_PAID", "PENDING")
+    )
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    total_price = models.IntegerField(default=0)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
+    pay_status = models.CharField(choices=ORDER_STATUS, default="UN_PAID", max_length=30)
+    pay_time = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.user
 
 
 class OrderItem(models.Model):
@@ -37,10 +44,9 @@ class OrderItem(models.Model):
     Order Item
     """
 
-    # user = models.OneToOneField(User, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    goods = models.ForeignKey(Goods, on_delete=models.CASCADE)
+    goods = models.ForeignKey(Goods, on_delete=models.CASCADE, related_name='orderitem')
     numbers = models.PositiveIntegerField(default=1)
 
     def __str__(self):
-        return self.name
+        return self.order
