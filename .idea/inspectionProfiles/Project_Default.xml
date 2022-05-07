@@ -1,0 +1,37 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="24">
+            <item index="0" class="java.lang.String" itemvalue="PyJWT" />
+            <item index="1" class="java.lang.String" itemvalue="PyYAML" />
+            <item index="2" class="java.lang.String" itemvalue="drf-partial-response" />
+            <item index="3" class="java.lang.String" itemvalue="django-mongoengine" />
+            <item index="4" class="java.lang.String" itemvalue="django-extensions" />
+            <item index="5" class="java.lang.String" itemvalue="django-channels" />
+            <item index="6" class="java.lang.String" itemvalue="django-werkzeug-debugger-runserver" />
+            <item index="7" class="java.lang.String" itemvalue="mongoengine" />
+            <item index="8" class="java.lang.String" itemvalue="djangorestframework-simplejwt" />
+            <item index="9" class="java.lang.String" itemvalue="pyOpenSSL" />
+            <item index="10" class="java.lang.String" itemvalue="pyzmq" />
+            <item index="11" class="java.lang.String" itemvalue="googlemaps" />
+            <item index="12" class="java.lang.String" itemvalue="django-rest-framework-mongoengine" />
+            <item index="13" class="java.lang.String" itemvalue="djangorestframework" />
+            <item index="14" class="java.lang.String" itemvalue="django-cors-headers" />
+            <item index="15" class="java.lang.String" itemvalue="django-mongoengine-filter" />
+            <item index="16" class="java.lang.String" itemvalue="django-sslserver" />
+            <item index="17" class="java.lang.String" itemvalue="pymongo" />
+            <item index="18" class="java.lang.String" itemvalue="django-webshell" />
+            <item index="19" class="java.lang.String" itemvalue="django-filter" />
+            <item index="20" class="java.lang.String" itemvalue="Django" />
+            <item index="21" class="java.lang.String" itemvalue="paho-mqtt" />
+            <item index="22" class="java.lang.String" itemvalue="python-decouple" />
+            <item index="23" class="java.lang.String" itemvalue="line-bot-sdk" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
