@@ -1,7 +1,9 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.tokens import RefreshToken
 from .models import User
+from django.contrib.auth import authenticate, models
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -31,3 +33,42 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['email'] = user.email
 
         return token
+
+
+class UserLoginSerializer(serializers.Serializer):
+    username = serializers.CharField(max_length=60)
+    password = serializers.CharField(max_length=128, write_only=True)
+    access = serializers.CharField(read_only=True)
+    refresh = serializers.CharField(read_only=True)
+    isStaff = serializers.BooleanField(read_only=True)
+
+    def create(self, validated_date):
+        pass
+
+    def update(self, instance, validated_data):
+        pass
+
+    def validate(self, data):
+        username = data['username']
+        password = data['password']
+        user = authenticate(username=username, password=password)
+
+        if user is None:
+            raise serializers.ValidationError("Invalid login credentials")
+
+        try:
+            refresh = RefreshToken.for_user(user)
+            refresh_token = str(refresh)
+            access_token = str(refresh.access_token)
+            models.update_last_login(None, user)
+
+            validation = {
+                'username': user.username,
+                'access': access_token,
+                'refresh': refresh_token,
+                'isStaff': True if user.is_staff else False,
+            }
+
+            return validation
+        except User.DoesNotExist:
+            raise serializers.ValidationError("Invalid login credentials")

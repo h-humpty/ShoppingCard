@@ -1,10 +1,15 @@
-<p>login works!</p>
+<mat-card>
+  <form class="example-form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>UserName</mat-label>
+      <input matInput required [(ngModel)]="username" name="username" />
+    </mat-form-field>
 
-<p>
-  Icon with a badge
-  <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
-  <!-- Include text description of the icon's meaning for screen-readers -->
-  <span class="cdk-visually-hidden">
-    Example with a home icon with overlaid badge showing the number 15
-  </span>
-</p>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput required [(ngModel)]="password" name="password" />
+    </mat-form-field>
+
+    <button mat-raised-button>Submit</button>
+  </form>
+</mat-card>

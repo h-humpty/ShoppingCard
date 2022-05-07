@@ -1,0 +1,79 @@
+<h1 mat-dialog-title>Create Good</h1>
+<div mat-dialog-content>
+  <form
+    #goodForm="ngForm"
+    class="example-container"
+    (ngSubmit)="onSubmit(goodForm)"
+  >
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        name="name"
+        placeholder="Apple"
+        [(ngModel)]="formData.name"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        name="description"
+        placeholder="Description of the good"
+        [(ngModel)]="formData.description"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="formData.category_id" name="category_id">
+        <ng-container *ngFor="let category of categories">
+          <mat-option [value]="category.id">{{ category.name }}</mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input
+        matInput
+        name="price"
+        placeholder="1000"
+        [(ngModel)]="formData.price"
+        required
+      />
+    </mat-form-field>
+
+    <input
+      #Image
+      name="images"
+      hidden="true"
+      type="file"
+      onclick="this.value=null"
+      (change)="handleFileInput($event)"
+      accept=".jpg,.svg,.png,.jpeg"
+    />
+    <button mat-flat-button color="primary" (click)="Image.click()">
+      upload images
+    </button>
+  </form>
+
+  <div class="d-flex flex-wrap mb-3">
+    <ng-container *ngIf="previewImage">
+      <img [src]="previewImage" width="300" height="210" />
+      <!-- <button
+        type="button"
+        class="btn btn-sm btn-danger position-absolute bottom-0 start-0"
+      >
+        Delete
+      </button> -->
+    </ng-container>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onSubmit(goodForm)">Ok</button>
+</div>

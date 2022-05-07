@@ -1,3 +1,8 @@
-.example-spacer {
-    flex: 1 1 auto;
-  }
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 100%;
+  max-width: 1600px;
+}

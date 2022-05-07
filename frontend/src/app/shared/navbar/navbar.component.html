@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+  <span>Let's Shop</span>
+  <span class="example-spacer"></span>
+
+  <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu">
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
+
+  <a *ngIf="reducer$?.isStaff" mat-button routerLink="/admin">
+    <!-- <mat-icon>login</mat-icon> -->
+    <span>Admin</span>
+  </a>
+
+  <a *ngIf="!reducer$?.isLogin" mat-button routerLink="/login">
+    <!-- <mat-icon>login</mat-icon> -->
+    <span>Login</span>
+  </a>
+
+  <a *ngIf="reducer$?.isLogin" mat-button (click)="logout()">
+    <!-- <mat-icon>logout</mat-icon> -->
+    <span>Logout</span>
+  </a>
+</mat-toolbar>

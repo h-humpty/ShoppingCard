@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
-
+import { NavbarComponent } from './navbar/navbar.component';
+import { MaterialUIModule } from '../material-ui/material-ui.module';
+import { SharedRoutingModule } from './shared-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { Reducer } from 'app/store/reducer';
 @NgModule({
-  declarations: [],
+  declarations: [NavbarComponent],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    StoreModule.forRoot({ reducer: Reducer }),
+    MaterialUIModule,
+    SharedRoutingModule,
+  ],
+  exports: [NavbarComponent],
 })
-export class SharedModule { }
+export class SharedModule {}

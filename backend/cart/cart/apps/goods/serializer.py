@@ -17,9 +17,9 @@ class GoodsCategorySerializer(serializers.ModelSerializer):
 
 
 class GoodsSerializer(serializers.ModelSerializer):
-    # category = serializers.StringRelatedField()
-    category_id = serializers.IntegerField(read_only=True)
-    images = GoodsImageSerializer(many=True, read_only=True)
+    category = serializers.StringRelatedField()
+    category_id = serializers.IntegerField()
+    images = GoodsImageSerializer(many=True, read_only=True, source='goodsimage')
 
     class Meta:
         model = Goods
