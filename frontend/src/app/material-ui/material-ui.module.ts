@@ -14,6 +14,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
+import { MatListModule } from '@angular/material/list';
 
 const materialModules = [
   MatBadgeModule,
@@ -31,6 +32,7 @@ const materialModules = [
   MatDialogModule,
   MatTabsModule,
   MatSelectModule,
+  MatListModule,
 ];
 
 @NgModule({

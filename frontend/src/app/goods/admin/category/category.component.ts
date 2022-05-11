@@ -45,7 +45,8 @@ export class CategoryComponent implements OnInit {
 
   openDialog(row?: Category | undefined): void {
     const dialogRef = this.dialog.open(CategoryFormComponent, {
-      width: '250px',
+      width: '600px',
+      height: '300px',
       data: row,
     });
 

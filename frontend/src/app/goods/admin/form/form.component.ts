@@ -68,7 +68,7 @@ export class FormComponent implements OnInit {
     //new good
     if (!this.formData.id) {
       this.goodsService.addGood(formValue).subscribe((res) => {
-        formData.append('goods', res.id);
+        formData.append('goods', res.id.toString());
         this.goodsService
           .uploadImage(formData)
           .subscribe((res: any) => console.log(res));
@@ -77,7 +77,7 @@ export class FormComponent implements OnInit {
     //update
     else {
       this.goodsService.updateGood(formValue).subscribe((res) => {
-        formData.append('id', res.images?.[0]?.id);
+        formData.append('id', res.images?.[0]?.id.toString());
         this.goodsService
           .updateImage(formData)
           .subscribe((res: any) => console.log(res));

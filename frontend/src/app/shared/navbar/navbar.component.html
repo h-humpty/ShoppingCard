@@ -1,15 +1,12 @@
-<mat-toolbar color="primary">
-  <span>Let's Shop</span>
-  <span class="example-spacer"></span>
+<mat-toolbar color="accent">
+  <!-- <span>Let's Shop</span> -->
+  <a mat-button routerLink="/">
+    <!-- <mat-icon>login</mat-icon> -->
+    <span>Let's Shop</span>
+  </a>
+  <span class="spacer"></span>
 
-  <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu">
-    <mat-icon>shopping_cart</mat-icon>
-  </button>
-
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
-  </mat-menu>
+  <app-cart></app-cart>
 
   <a *ngIf="reducer$?.isStaff" mat-button routerLink="/admin">
     <!-- <mat-icon>login</mat-icon> -->

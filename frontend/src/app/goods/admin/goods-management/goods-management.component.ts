@@ -50,7 +50,7 @@ export class GoodsManagementComponent implements AfterViewInit {
 
   openDialog(row?: Goods | undefined): void {
     const dialogRef = this.dialog.open(FormComponent, {
-      width: '250px',
+      width: '600px',
       data: row,
     });
 

@@ -1,19 +1,22 @@
-table {
-  width: 100%;
-}
+.container {
+  margin: 1.5rem;
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
 
-td,
-th {
-  width: 25%;
-}
+  table {
+    width: 100%;
+    td,
+    th {
+      width: 25%;
+    }
+  }
 
-.goodsList {
-  &__action {
-    display: flex;
+  .goodsList {
+    &__action {
+      display: flex;
+    }
   }
 }

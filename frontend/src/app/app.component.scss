@@ -1,8 +1,14 @@
-.container {
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  width: 100%;
-  max-width: 1600px;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+    max-width: 1600px;
+    flex: 1;
+  }
 }

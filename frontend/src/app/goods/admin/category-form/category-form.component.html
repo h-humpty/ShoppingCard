@@ -1,35 +1,33 @@
 <h1 mat-dialog-title>Create Category</h1>
 <div mat-dialog-content>
-  <div class="example-container">
-    <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
-      <mat-form-field appearance="fill">
-        <mat-label>Category Name</mat-label>
-        <input
-          name="name"
-          matInput
-          placeholder="Apple"
-          type="text"
-          [(ngModel)]="name"
-          required
-        />
-      </mat-form-field>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+    <mat-form-field appearance="fill">
+      <mat-label>Category Name</mat-label>
+      <input
+        name="name"
+        matInput
+        placeholder="Apple"
+        type="text"
+        [(ngModel)]="name"
+        required
+      />
+    </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Description</mat-label>
-        <input
-          name="description"
-          matInput
-          placeholder="Description of the good"
-          type="text"
-          [(ngModel)]="description"
-          required
-        />
-      </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input
+        name="description"
+        matInput
+        placeholder="Description of the good"
+        type="text"
+        [(ngModel)]="description"
+        required
+      />
+    </mat-form-field>
 
-      <div mat-dialog-actions>
-        <button mat-button (click)="onNoClick()">Cancel</button>
-        <button mat-button htmltype="submit">Submit</button>
-      </div>
-    </form>
-  </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Cancel</button>
+      <button mat-button htmltype="submit">Submit</button>
+    </div>
+  </form>
 </div>
