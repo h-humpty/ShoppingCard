@@ -9,6 +9,8 @@ from users.serializers import UserSerializer
 
 class ShoppingCartSerializer(serializers.ModelSerializer):
     goods = serializers.PrimaryKeyRelatedField(required=True, queryset=Goods.objects.all())
+    goods_detail = GoodsSerializer(read_only=True, source='goods')
+    # goods_detail = serializers.StringRelatedField(read_only=True, source='goods')
     user = serializers.HiddenField(
         default=serializers.CurrentUserDefault()
     )
@@ -32,6 +34,19 @@ class ShoppingCartSerializer(serializers.ModelSerializer):
             existed = ShoppingCart.objects.create(**validated_data)
 
         return existed
+
+    def update(self, instance, validated_data):
+        print(instance.numbers)
+        # user = self.context["request"].user
+        # goods = validated_data["goods"]
+        decrease = validated_data['numbers']
+        instance.numbers = instance.numbers - decrease
+        if instance.numbers == 0:
+            instance.delete()
+
+        instance.save()
+
+        return instance
 
 
 class OrderItemSerializer(serializers.ModelSerializer):

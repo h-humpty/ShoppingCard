@@ -177,16 +177,22 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = (
 
-    "http://localhost:4200"
+    "http://localhost:4200",
+    "http://adf7-60-250-198-235.ngrok.io*"
 )
 
 CORS_ALLOWED_ORIGINS = [
-     "http://localhost:4200"
+     "http://localhost:4200",
+    "http://adf7-60-250-198-235.ngrok.io*"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:4200"
+    "http://localhost:4200",
+    "http://adf7-60-250-198-235.ngrok.io*"
 ]
+
+ALLOWED_HOSTS = [
+    "adf7-60-250-198-235.ngrok.io", "localhost"]
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=10),

@@ -13,7 +13,7 @@ class ShoppingCartView(viewsets.ModelViewSet):
     queryset = ShoppingCart.objects.all()
     permission_classes = (IsAuthenticated,)
     authentication_classes = (JWTAuthentication,)
-    lookup_field = "goods"
+    # lookup_field = "goods"
 
 
 class OrderView(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin, mixins.DestroyModelMixin,

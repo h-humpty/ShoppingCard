@@ -9,13 +9,13 @@ class ShoppingCart(models.Model):
     ShoppingCart
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    goods = models.ForeignKey(Goods, on_delete=models.CASCADE)
+    goods = models.ForeignKey(Goods, on_delete=models.CASCADE, related_name='goods')
     numbers = models.PositiveIntegerField(default=1)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
 
-    def __str__(self):
-        return self.user
+    # def __str__(self):
+    #     return self.goods
 
 
 class Order(models.Model):
