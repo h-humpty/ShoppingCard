@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Create Category</h1>
 <div mat-dialog-content>
-  <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+  <form #categoryForm="ngForm" (ngSubmit)="onSubmit(categoryForm)">
     <mat-form-field appearance="fill">
       <mat-label>Category Name</mat-label>
       <input
@@ -27,7 +27,7 @@
 
     <div mat-dialog-actions>
       <button mat-button (click)="onNoClick()">Cancel</button>
-      <button mat-button htmltype="submit">Submit</button>
+      <button mat-button (click)="onSubmit(categoryForm)">Submit</button>
     </div>
   </form>
 </div>

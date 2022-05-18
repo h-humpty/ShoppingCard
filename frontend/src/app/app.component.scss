@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
   height: 100%;
   .container {
     margin-right: auto;

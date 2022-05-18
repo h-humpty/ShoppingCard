@@ -23,7 +23,7 @@ export class GoodsService {
     return this._http.patch<Goods>(`${apiURL}/goods/`, data);
   }
 
-  removeGood(id: string) {
+  removeGood(id: number) {
     return this._http.delete(`${apiURL}/goods/${id}`);
   }
 
@@ -36,10 +36,10 @@ export class GoodsService {
   }
 
   updateCategory(data: Partial<Category>) {
-    return this._http.patch<Category>(`${apiURL}/category/`, data);
+    return this._http.patch<Category>(`${apiURL}/category/${data.id}/`, data);
   }
 
-  removeCategory(id: string) {
+  removeCategory(id: number) {
     return this._http.delete(`${apiURL}/category/${id}`);
   }
 

@@ -9,6 +9,7 @@ import { GoodsService } from 'app/services/goods/goods.service';
   styleUrls: ['./category-form.component.scss'],
 })
 export class CategoryFormComponent implements OnInit {
+  id: number | undefined = this.data?.id || undefined;
   name: string = this.data?.name || '';
   description: string = this.data?.description || '';
 
@@ -29,9 +30,20 @@ export class CategoryFormComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onSubmit(value: any) {
+  onSubmit(_values: any) {
     // this.goodsService.
-    console.log(value);
-    this.goodsService.addCategory(value).subscribe((res) => console.log(res));
+    const formValue = _values.form.value;
+    const value = { ...formValue, id: this.id };
+
+    //new Category
+    if (!this.id) {
+      this.goodsService.addCategory(value).subscribe((res) => console.log(res));
+    }
+    //update
+    else {
+      this.goodsService.updateCategory(value).subscribe((res) => {
+        console.log(res);
+      });
+    }
   }
 }

@@ -24,11 +24,7 @@ export class GoodsManagementComponent implements AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit() {
-    this.goodsService.listGoods().subscribe((res) => {
-      this.dataSource = new MatTableDataSource(res);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-    });
+    this.listGoods();
   }
 
   applyFilter(event: Event) {
@@ -40,12 +36,16 @@ export class GoodsManagementComponent implements AfterViewInit {
     }
   }
 
-  // onEdit(row: Goods) {
-  //   console.log(row);
-  // }
+  listGoods() {
+    this.goodsService.listGoods().subscribe((res) => {
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+  }
 
   onDelete(row: Goods) {
-    console.log(row);
+    this.goodsService.removeGood(row.id).subscribe(() => this.listGoods());
   }
 
   openDialog(row?: Goods | undefined): void {

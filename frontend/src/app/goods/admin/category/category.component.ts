@@ -23,11 +23,7 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {}
 
   ngAfterViewInit() {
-    this.goodsService.listCategories().subscribe((res) => {
-      this.dataSource = new MatTableDataSource(res);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-    });
+    this.listCategories();
   }
 
   applyFilter(event: Event) {
@@ -39,8 +35,18 @@ export class CategoryComponent implements OnInit {
     }
   }
 
+  listCategories() {
+    this.goodsService.listCategories().subscribe((res) => {
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+  }
+
   onDelete(row: Category) {
-    console.log(row);
+    this.goodsService
+      .removeCategory(row.id)
+      .subscribe(() => this.listCategories());
   }
 
   openDialog(row?: Category | undefined): void {

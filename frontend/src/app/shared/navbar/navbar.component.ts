@@ -24,6 +24,8 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.store.dispatch(login({ isLogin: false }));
+    localStorage.removeItem('token');
+    localStorage.removeItem('isStaff');
     this.authService.logout();
     this.route.navigate(['/login']);
   }
