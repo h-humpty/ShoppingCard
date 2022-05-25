@@ -90,12 +90,12 @@ WSGI_APPLICATION = 'cart.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('SQLNAME'),
-        'USER': os.getenv('SQLUSER'),
-        'PASSWORD': os.getenv('SQLPASSWORD'),
-        'HOST': os.getenv('SQLHOST'),
-        'PORT': os.getenv('SQLPORT'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_NAME'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
@@ -183,16 +183,16 @@ CORS_ALLOWED_ORIGINS = (
 
 CORS_ALLOWED_ORIGINS = [
      "http://localhost:4200",
-    "http://adf7-60-250-198-235.ngrok.io*"
+    "http://4b1e-60-250-198-235.ngrok.io*"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:4200",
-    "http://adf7-60-250-198-235.ngrok.io*"
+    "http://4b1e-60-250-198-235.ngrok.io*"
 ]
 
 ALLOWED_HOSTS = [
-    "adf7-60-250-198-235.ngrok.io", "localhost"]
+    "4b1e-60-250-198-235.ngrok.io", "localhost"]
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=10),

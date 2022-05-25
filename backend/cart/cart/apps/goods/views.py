@@ -31,6 +31,7 @@ class GoodsImageView(viewsets.ModelViewSet):
     #     return Response(serializer.data, status=201)
 
 
-class CategoriesView(mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet):
+class CategoriesView(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.DestroyModelMixin,
+                     mixins.UpdateModelMixin, viewsets.GenericViewSet):
     serializer_class = GoodsCategorySerializer
     queryset = GoodsCategory.objects.all()
