@@ -1,4 +1,4 @@
-# Django + Angular-Shopping-Cart
+# Django + DRF + MongoDB + Angular Shopping-Cart
 Simple shopping cart application
 
 ## Simple shopping cart application
@@ -38,5 +38,7 @@ Try playing with the code on CodeSandbox :)
 /* All you need to do is run the docker-compose file */
 sudo docker-compose up
 
+/* vist port:4201 on your local machine, default account/passwrd: super  */
+http://localhost:4201
 
 ```
