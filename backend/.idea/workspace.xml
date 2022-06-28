@@ -5,29 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb21fe95-a04b-4614-b9b2-715d6e8d66ab" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/auth/auth-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/auth/auth-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/auth/auth.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/auth/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/auth/login/login.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/auth/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/auth/login/login.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/auth/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/cart/cart-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/cart/cart-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/goods/goods-list/goods-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/goods/goods-list/goods-list.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/goods/goods-list/goods-list.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/goods/goods-list/goods-list.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/goods/goods-list/goods-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/goods/goods-list/goods-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/goods/goods-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/goods/goods-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/goods/goods.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/goods/goods.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/material-ui/material-ui.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/material-ui/material-ui.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/shared/shared.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/shared/shared.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/environments/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,11 +52,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../src/osmart" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tlhsieh\Desktop\ShoppingCart\backend\cart\cart\apps\users\management\commands" />
       <recent name="C:\Users\tlhsieh\Desktop\ShoppingCart\cart\cart\apps" />
     </key>
   </component>
@@ -84,6 +76,27 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cart/manage.py" />
       <option name="PARAMETERS" value="runserver 0.0.0.0:9000" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="serializers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ShoppingCart" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cart/cart/apps/users" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cart/cart/apps/users/serializers.py" />
+      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -115,10 +128,12 @@
     <list>
       <item itemvalue="Python.manage" />
       <item itemvalue="Python.views" />
+      <item itemvalue="Python.serializers" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.manage" />
+        <item itemvalue="Python.serializers" />
         <item itemvalue="Python.views" />
       </list>
     </recent_temporary>

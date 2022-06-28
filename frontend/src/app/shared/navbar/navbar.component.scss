@@ -1,7 +1,6 @@
-.spacer {
-  flex: 1 1 auto;
-}
-
-.mat-toolbar {
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+.toolBar {
+  padding: 0 20rem;
+  .spacer {
+    flex: 1 1 auto;
+  }
 }

@@ -36,14 +36,15 @@ class ShoppingCartSerializer(serializers.ModelSerializer):
         return existed
 
     def update(self, instance, validated_data):
-        print(instance.numbers)
         # user = self.context["request"].user
         # goods = validated_data["goods"]
         decrease = validated_data['numbers']
         instance.numbers = instance.numbers - decrease
-        if instance.numbers == 0:
-            instance.delete()
 
+        # if instance.numbers == 0:
+        #
+        #     instance.delete()
+        #     return None
         instance.save()
 
         return instance

@@ -6,19 +6,24 @@ import { GoodsService } from 'app/services/goods/goods.service';
 import { Category } from 'app/types/index';
 import { MatDialog } from '@angular/material/dialog';
 import { CategoryFormComponent } from 'app/goods/admin/category-form/category-form.component';
-
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss'],
 })
 export class CategoryComponent implements OnInit {
+  notifierSubscription: Subscription;
   displayedColumns: string[] = ['id', 'name', 'description', 'action'];
   dataSource: MatTableDataSource<Category>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private goodsService: GoodsService, public dialog: MatDialog) {}
+  constructor(private goodsService: GoodsService, public dialog: MatDialog) {
+    this.notifierSubscription = this.goodsService.getUpdate().subscribe(() => {
+      this.listCategories();
+    });
+  }
 
   ngOnInit(): void {}
 

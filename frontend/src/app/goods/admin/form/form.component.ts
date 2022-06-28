@@ -3,7 +3,7 @@ import { GoodsService } from 'app/services/goods/goods.service';
 import { Goods, Category } from 'app/types/index';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -26,17 +26,20 @@ export class FormComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<FormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Goods | undefined,
-    private goodsService: GoodsService
+    private goodsService: GoodsService,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
-    console.log('get data from form', this.data);
-
     this.getCategories();
   }
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
 
   handleFileInput(event: any) {
@@ -58,6 +61,11 @@ export class FormComponent implements OnInit {
       .subscribe((res) => (this.categories = res));
   }
 
+  sendMessage(): void {
+    // send message to subscribers via observable subject
+    this.goodsService.sendUpdate('Refresh');
+  }
+
   async onSubmit(value: NgForm) {
     const formValue = { ...value }.form.value;
     const formData = new FormData();
@@ -69,18 +77,20 @@ export class FormComponent implements OnInit {
     if (!this.formData.id) {
       this.goodsService.addGood(formValue).subscribe((res) => {
         formData.append('goods', res.id.toString());
-        this.goodsService
-          .uploadImage(formData)
-          .subscribe((res: any) => console.log(res));
+        this.goodsService.uploadImage(formData).subscribe(() => {
+          this.sendMessage();
+          this.openSnackBar('New good added!', 'OK');
+        });
       });
     }
     //update
     else {
       this.goodsService.updateGood(formValue).subscribe((res) => {
         formData.append('id', res.images?.[0]?.id.toString());
-        this.goodsService
-          .updateImage(formData)
-          .subscribe((res: any) => console.log(res));
+        this.goodsService.updateImage(formData).subscribe((res: any) => {
+          this.sendMessage();
+          this.openSnackBar('Good is updated!!', 'OK');
+        });
       });
     }
   }

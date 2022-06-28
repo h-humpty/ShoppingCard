@@ -1,14 +1,36 @@
-.mat-icon {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  cursor: pointer;
+.cartList {
+  min-width: 350px;
+  padding: 0.5rem;
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    &__counter {
+      width: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    &__image {
+      display: inline-block;
+      margin-right: 0.5rem;
+      width: 40px;
+      height: 40px;
+    }
+    p {
+      margin: 0;
+    }
+  }
+
+  .mat-icon {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
 }
 
-.item {
-  &__name {
-    width: 70%;
-  }
-  p {
-    margin: 0;
-  }
+.empty {
+  padding: 0.5rem;
 }

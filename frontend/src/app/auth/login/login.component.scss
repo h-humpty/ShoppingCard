@@ -1,9 +1,16 @@
-.example-form {
-    min-width: 150px;
-    max-width: 500px;
+.card {
+  min-width: 150px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 50%;
+
+  transform: translateY(-50%);
+  .form {
     width: 100%;
   }
-  
-  .example-full-width {
+
+  .full-width {
     width: 100%;
   }
+}

@@ -1,42 +1,27 @@
-version: "3.9"
+version: "3"
 
 services:
-  db:
-    image: postgres
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    ports:
-      - 5432:5432
   web:
     build: ./backend/cart
+    # volumes:
+    #   - django-data:/code
     command:
       - /bin/bash
       - -c
       - |
         python manage.py migrate
-        python manage.py runserver 0.0.0.0:8000
+        python manage.py runserver 0.0.0.0:9000
     ports:
-      - "8000:8000"
-    environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGERS_DB=postgres
-    depends_on:
-      - db
+      - "9000:9000"
   frontend:
     restart: always
     container_name: frontend
     build: ./frontend
     ports:
-      - "4200:80"
+      - "4201:80"
     stdin_open: true
     depends_on:
       - web
-volumes:
-  postgres-data:
-    driver: local
+# volumes:
+# django-data:
+#   driver: local

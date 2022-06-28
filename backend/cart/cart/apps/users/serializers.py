@@ -57,7 +57,9 @@ class UserLoginSerializer(serializers.Serializer):
             raise serializers.ValidationError("Invalid login credentials")
 
         try:
+            print(user, type(user))
             refresh = RefreshToken.for_user(user)
+            print(62,str(refresh))
             refresh_token = str(refresh)
             access_token = str(refresh.access_token)
             models.update_last_login(None, user)

@@ -1,17 +1,23 @@
-.card {
-  // max-width: 400px;
-  width: 300px;
-  // height: 380px;
-}
+.goodList {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 
-.example-header-image {
-  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
-  background-size: cover;
-}
-
-.mat-card-image {
-  // max-height: 300px;
-  height: 200px;
-  width: 300px;
-  overflow: hidden;
+  &__card {
+    width: 210px;
+    height: 400px;
+    &__header {
+      height: 80px;
+    }
+    &__image {
+      width: 210px;
+      height: 180px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &__content {
+      height: 60px;
+    }
+  }
 }

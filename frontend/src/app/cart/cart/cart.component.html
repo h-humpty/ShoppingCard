@@ -1,29 +1,39 @@
-<button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu">
-  <mat-icon>shopping_cart</mat-icon>
-</button>
+<mat-list role="list" *ngIf="cartList?.length; else empty" class="cartList">
+  <h2>My Cart</h2>
+  <ng-container *ngFor="let item of cartList">
+    <mat-list-item role="listitem" *ngIf="item.numbers">
+      <div class="cartList__item">
+        <ng-container>
+          <img
+            class="cartList__item__image"
+            src="{{ item.goods_detail.images[0]?.image }}"
+          />
 
-<mat-menu #menu="matMenu">
-  <!-- <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button> -->
-  <mat-list role="list" *ngFor="let item of reducer$?.cartList">
-    <mat-list-item class="item" role="listitem" *ngIf="item.numbers">
-      <p class="item__name">{{ item.goods_detail.name }}</p>
+          <p class="item__name">{{ item.goods_detail.name }}</p>
+        </ng-container>
 
-      <ng-container>
-        <mat-icon
-          aria-label="increase"
-          (click)="$event.stopPropagation(); addToCart(item.goods)"
-          >add_circle</mat-icon
-        >
+        <div class="cartList__item__counter">
+          <mat-icon
+            aria-label="increase"
+            (click)="$event.stopPropagation(); addToCart(item.goods)"
+            >add_circle</mat-icon
+          >
 
-        <p>{{ item.numbers }}</p>
+          <p>{{ item.numbers }}</p>
 
-        <mat-icon
-          aria-label="decrease"
-          (click)="$event.stopPropagation(); removeFromCart(item.id)"
-          >remove_circle</mat-icon
-        >
-      </ng-container>
+          <mat-icon
+            aria-label="decrease"
+            (click)="
+              $event.stopPropagation(); clickDecrease(item.numbers, item.id)
+            "
+            >remove_circle</mat-icon
+          >
+        </div>
+      </div>
     </mat-list-item>
-  </mat-list>
-</mat-menu>
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-list>
+<ng-template #empty>
+  <div class="empty"><h2>Cart is empty!</h2></div>
+</ng-template>

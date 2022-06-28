@@ -6,22 +6,37 @@ import { GoodsService } from 'app/services/goods/goods.service';
 import { Goods } from 'app/types/index';
 import { MatDialog } from '@angular/material/dialog';
 import { FormComponent } from '../form/form.component';
-
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-goods-management',
   templateUrl: './goods-management.component.html',
   styleUrls: ['./goods-management.component.scss'],
 })
 export class GoodsManagementComponent implements AfterViewInit {
+  notifierSubscription: Subscription;
+
+  // notifierSubscription: Subscription =
+  //   this.goodsService.subjectNotifier.subscribe((notified) => {
+  //     console.log(notified);
+
+  //   });
   displayedColumns: string[] = ['id', 'name', 'category', 'price', 'action'];
   dataSource: MatTableDataSource<Goods>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private goodsService: GoodsService, public dialog: MatDialog) {}
+  constructor(private goodsService: GoodsService, public dialog: MatDialog) {
+    this.notifierSubscription = this.goodsService.getUpdate().subscribe(() => {
+      this.listGoods();
+    });
+  }
 
   ngOnInit(): void {}
+
+  ngOnDestroy() {
+    this.notifierSubscription.unsubscribe();
+  }
 
   ngAfterViewInit() {
     this.listGoods();
@@ -58,27 +73,4 @@ export class GoodsManagementComponent implements AfterViewInit {
       console.log('The dialog was closed');
     });
   }
-
-  // openDialog(row?: Goods | undefined) {
-  //   this.dialog.open(FormComponent, {
-  //     data: {
-  //       row,
-  //     },
-  //   });
-  // }
 }
-
-// @Component({
-//   selector: 'app-form',
-//   templateUrl: '../form/form.component.html',
-// })
-// export class GoodForm {
-//   constructor(
-//     public dialogRef: MatDialogRef<GoodForm>,
-//     @Inject(MAT_DIALOG_DATA) public data: Goods | undefined
-//   ) {}
-
-//   onNoClick(): void {
-//     this.dialogRef.close();
-//   }
-// }

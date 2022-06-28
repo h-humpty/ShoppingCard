@@ -6,10 +6,19 @@
   .container {
     margin-right: auto;
     margin-left: auto;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding: 0 15rem;
     width: 100%;
-    max-width: 1600px;
+
     flex: 1;
+    position: relative;
+    .content {
+      margin-right: auto;
+      margin-left: auto;
+      width: 90%;
+    }
+  }
+
+  .footer {
+    height: 2rem;
   }
 }

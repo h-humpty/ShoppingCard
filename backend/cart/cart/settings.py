@@ -90,14 +90,12 @@ WSGI_APPLICATION = 'cart.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_NAME'),
-        'USER': os.environ.get('POSTGRES_USER'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'HOST': 'db',
-        'PORT': 5432,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
 
 # CACHES = {
 #     'default': {
@@ -149,10 +147,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'media/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'media/static')
 ]
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -174,35 +175,29 @@ REST_FRAMEWORK = {
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-
 CORS_ALLOWED_ORIGINS = (
-
     "http://localhost:4200",
-    "http://adf7-60-250-198-235.ngrok.io*"
 )
 
 CORS_ALLOWED_ORIGINS = [
-     "http://localhost:4200",
-    "http://4b1e-60-250-198-235.ngrok.io*"
+    "http://localhost:4200",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:4200",
-    "http://4b1e-60-250-198-235.ngrok.io*"
 ]
 
-ALLOWED_HOSTS = [
-    "4b1e-60-250-198-235.ngrok.io", "localhost"]
+ALLOWED_HOSTS = ["localhost"]
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=10),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=3),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=100),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=300),
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': False,
     'UPDATE_LAST_LOGIN': False,
 
     'ALGORITHM': 'HS256',
-    'SIGNING_KEY': os.getenv('SECRECT_KEY'),
+    'SIGNING_KEY': os.getenv('SECRET_KEY'),
     'VERIFYING_KEY': None,
     'AUDIENCE': None,
     'ISSUER': None,

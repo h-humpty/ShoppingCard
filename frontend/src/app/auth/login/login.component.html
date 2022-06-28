@@ -1,13 +1,25 @@
-<mat-card>
-  <form class="example-form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>UserName</mat-label>
-      <input matInput required [(ngModel)]="username" name="username" />
+<mat-card class="card">
+  <form class="form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>UserName (super)</mat-label>
+      <input
+        matInput
+        required
+        [(ngModel)]="username"
+        name="username"
+        placeholder="account is super"
+      />
     </mat-form-field>
 
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Password</mat-label>
-      <input matInput required [(ngModel)]="password" name="password" />
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Password (super)</mat-label>
+      <input
+        matInput
+        required
+        [(ngModel)]="password"
+        name="password"
+        placeholder="password is super"
+      />
     </mat-form-field>
 
     <button mat-raised-button>Submit</button>

@@ -25,7 +25,9 @@ export interface Cart {
     id: number;
     category: string;
     category_id: number;
-    images: string[];
+    images: {
+      image: string;
+    }[];
     name: string;
     price: number;
     description: string;

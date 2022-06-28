@@ -1,25 +1,30 @@
-<mat-toolbar color="primary">
-  <!-- <span>Let's Shop</span> -->
+<mat-toolbar color="primary" class="toolBar">
   <a mat-button routerLink="/">
-    <!-- <mat-icon>login</mat-icon> -->
-    <span>Let's Shop</span>
+    <h2>Let's Shop</h2>
   </a>
   <span class="spacer"></span>
 
-  <app-cart></app-cart>
+  <!-- <app-cart></app-cart> -->
+  <div>
+    <button mat-icon-button (click)="inputSideNav.toggle()">
+      <mat-icon matBadge="{{ cartList.length }}" matBadgeColor="warn"
+        >shopping_cart</mat-icon
+      >
+    </button>
 
+    <!-- <button type="button" mat-button (click)="inputSideNav.toggle()">
+      Toggle sidenav
+    </button> -->
+  </div>
   <a *ngIf="reducer$?.isStaff" mat-button routerLink="/admin">
-    <!-- <mat-icon>login</mat-icon> -->
     <span>Admin</span>
   </a>
 
   <a *ngIf="!reducer$?.isLogin" mat-button routerLink="/login">
-    <!-- <mat-icon>login</mat-icon> -->
     <span>Login</span>
   </a>
 
   <a *ngIf="reducer$?.isLogin" mat-button (click)="logout()">
-    <!-- <mat-icon>logout</mat-icon> -->
     <span>Logout</span>
   </a>
 </mat-toolbar>
